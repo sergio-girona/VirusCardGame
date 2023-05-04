@@ -4,7 +4,4 @@ export default class Virus extends Card{
         super(color);
         this.tipus="virus";
     }
-    infectar(){
-
-    }
 }
