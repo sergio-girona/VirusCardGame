@@ -14,17 +14,17 @@ export default class Deck{
         let cont=0;
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < Card.colors.length; j++) {
-                this.cartes.push(new Organ(Card.colors[j]));
+                this.cartes.push(new Organ(Card.colors[j]), './imatges/${Card.tipus}');
             }
         }
-        this.cartes.push(new Organ('multicolor'));
+        this.cartes.push(new Organ('Multicolor'));
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < Card.colors.length; j++) {
                 this.cartes.push(new Virus(Card.colors[j]));
             }
         }
-        this.cartes.push(new Virus('multicolor'));
+        this.cartes.push(new Virus('Multicolor'));
 
        for (let i = 0; i < 4; i++) {
             for (let j = 0; j < Card.colors.length; j++) {
@@ -32,7 +32,7 @@ export default class Deck{
             }
         }
        while(cont<4){
-            this.cartes.push(new Medicina('multicolor'));
+            this.cartes.push(new Medicina('Multicolor'));
             cont++;
         }
     }

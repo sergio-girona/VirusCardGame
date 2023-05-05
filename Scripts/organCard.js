@@ -4,11 +4,12 @@ export default class Organ extends Card{
      * Constructor per les cartes del tipus Organ
      * @param {String} color
      */
-    constructor(color) {
+    constructor(color,imatge) {
         super(color);
         this.efecte=[];
         this.estat="neutre"
-        this.tipus="organ";
+        this.tipus="organo";
+        this.imatge=imatge;
     }
     estatOrgan(){
         if(this.efecte[0].tipus==="medicina"&&this.efecte[1].tipus==="medicina") {

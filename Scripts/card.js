@@ -1,5 +1,5 @@
 export default class Card{
-    static colors = ['vermell', 'verd', 'groc', 'blau'];
+    static colors = ['Rojo', 'Verde', 'Amarillo', 'Azul'];
     constructor(color) {
         this.color=color;
     }
