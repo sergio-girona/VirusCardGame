@@ -27,7 +27,5 @@ new Sortable(cossos, {
     animation: 150,
     onAdd:()=>{
         partida.currentPlayer.moureCartaACos();
-        console.log(`Array cos: ${partida.currentPlayer.cuerpo}`);
-        console.log(`Array ma: ${partida.currentPlayer.baralla}`);
     }
 })
