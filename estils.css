@@ -1,0 +1,57 @@
+body{
+    display: block;
+}
+img{
+    border-radius: 15px;
+}
+#divTornar{
+    border: black 1px dashed;
+    height: 235px;
+    width: 151px;
+}
+.mans{
+    border: black 1px dashed;
+    display: flex;
+    height: 235px;
+    width: 453px;
+    margin-top: 50px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+.cossos{
+    display: flex;
+    border: black 1px dashed;
+    height: 235px;
+    width: 604px;
+    margin-top: 50px;
+    margin-right: 200px;
+    margin-left: 200px;
+    justify-content: space-evenly;
+}
+.jugadorsDiv .mans .carta:nth-child(1) {
+    rotate: -25deg;
+    transform: translateX(20px);
+}
+.jugadorsDiv .mans .carta:nth-child(1):hover {
+    transform: translateY(-40px);
+}
+
+.jugadorsDiv .mans .carta:nth-child(2) {
+    z-index: 2;
+    transform: translateY(-40px);
+}
+.jugadorsDiv .mans .carta:nth-child(2):hover {
+    transform: translateY(-70px);
+}
+
+.jugadorsDiv .mans .carta:nth-child(3) {
+    rotate: 25deg;
+    transform: translateX(-20px);
+    z-index: 3;
+}
+.jugadorsDiv .mans .carta:nth-child(3):hover {
+    transform: translateY(-40px);
+}
+.jugadorsDiv .mans .carta{
+    transition: transform 0.4s ease-in-out;
+}

@@ -1,17 +1,13 @@
 import Card from "./card.js";
 export default class Organ extends Card{
-    /**
-     * Constructor per les cartes del tipus Organ
-     * @param {String} color
-     */
     constructor(color,imatge) {
         super(color);
         this.efecte=[];
-        this.estat="neutre"
-        this.tipus="organo";
+        this.estat='neutre'
+        this.tipusCarta='organo';
         this.imatge=imatge;
     }
-    estatOrgan(){
+   /* estatOrgan(){
         if(this.efecte[0].tipus==="medicina"&&this.efecte[1].tipus==="medicina") {
             this.estat = "immune";
         }
@@ -21,5 +17,5 @@ export default class Organ extends Card{
         else{
             this.estat="neutre"
         }
-    }
+    }*/
 }
