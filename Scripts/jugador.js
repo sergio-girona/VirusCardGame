@@ -15,8 +15,20 @@ export default class Jugador{
     afegirCartaArray(carta){
         this.baralla.push(carta);
     }
-    moureCartaACos(){
-        let carta = this.baralla.pop();
-        this.cuerpo.push(carta)
+    moureCartaACos(pos){
+        const carta = this.baralla.splice(pos, 1)[0];
+        this.cuerpo.push(carta);
+        console.log("Ma");
+        console.log(this.baralla);
+        console.log("Cos");
+        console.log(this.cuerpo);
+    }
+    actualitzarPosicionsBaralla(){
+        const contenidor = document.getElementById("maJUGADOR");
+        const divs = contenidor.querySelectorAll("div");
+        divs.forEach((div, index) => {
+            div.dataset.posicio = index;
+            index++;
+        });
     }
 }

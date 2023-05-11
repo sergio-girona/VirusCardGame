@@ -24,7 +24,7 @@ export default class Deck{
                 this.cartes.push(new Virus(Card.colors[j], './imatges/virus'+Card.colors[j]+'.png'));
             }
         }
-        this.cartes.push(new Virus('Multicolor','./imatges/organoMulticolor.png'));
+        this.cartes.push(new Virus('Multicolor','./imatges/virusMulticolor.png'));
 
        for (let i = 0; i < 4; i++) {
             for (let j = 0; j < Card.colors.length; j++) {
@@ -32,7 +32,7 @@ export default class Deck{
             }
         }
        while(cont<4){
-            this.cartes.push(new Medicina('Multicolor', './imatges/organoMulticolor.png'));
+            this.cartes.push(new Medicina('Multicolor', './imatges/medicinaMulticolor.png'));
             cont++;
         }
     }
