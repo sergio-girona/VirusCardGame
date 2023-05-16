@@ -4,7 +4,7 @@ export default class Organ extends Card{
         super(color);
         this.efecte=[];
         this.estat='neutre'
-        this.tipusCarta='organo';
+        this.tipus='organo';
         this.imatge=imatge;
     }
    /* estatOrgan(){

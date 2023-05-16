@@ -9,7 +9,9 @@ export function crearVistaCarta(carta, nom, pos){
     nouDiv.classList.add("carta");
     nouDiv.appendChild(img);
     nouDiv.dataset.posició=pos;
+    nouDiv.dataset.color=carta.color;
     div.appendChild(nouDiv);
+    return div;
 }
 
 function disableButton(){

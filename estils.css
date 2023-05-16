@@ -1,13 +1,19 @@
 body{
-    display: block;
+    display: inline-block;
 }
 img{
     border-radius: 15px;
 }
+#partida{
+    display: flex;
+}
 #divTornar{
-    border: black 1px dashed;
-    height: 235px;
-    width: 151px;
+    background-image: url("./imatges/basura_tencada.png");
+    height: 285px;
+    width: 222px;
+}
+#divTornar:hover{
+    background-image: url("./imatges/basura_oberta.png");
 }
 .mans{
     border: black 1px dashed;
@@ -54,4 +60,8 @@ img{
 }
 .jugadorsDiv .mans .carta{
     transition: transform 0.4s ease-in-out;
+}
+
+.carta {
+    border: black 1px solid;
 }
