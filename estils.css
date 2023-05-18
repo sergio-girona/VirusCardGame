@@ -16,23 +16,32 @@ img{
     background-image: url("./imatges/basura_oberta.png");
 }
 .mans{
-    border: black 1px dashed;
     display: flex;
     height: 235px;
     width: 453px;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-right: 200px;
     margin-left: 200px;
 }
 .cossos{
     display: flex;
-    border: black 1px dashed;
     height: 235px;
     width: 604px;
     margin-top: 50px;
     margin-right: 200px;
     margin-left: 200px;
-    justify-content: space-evenly;
+}
+.cossos .cartaCos:nth-child(1),.cartaCos:nth-child(2),.cartaCos:nth-child(3),.cartaCos:nth-child(4) {
+    border: black 1px solid;
+    height: 235px;
+    width: 150px;
+    margin: 5px;
+}
+.cossos .cartaCos .carta:nth-child(2){
+    transform: translateY(-170px);
+}
+.cossos .cartaCos .carta:nth-child(3) {
+    transform: translateY(-370px);
 }
 .jugadorsDiv .mans .carta:nth-child(1) {
     rotate: -25deg;
@@ -61,7 +70,6 @@ img{
 .jugadorsDiv .mans .carta{
     transition: transform 0.4s ease-in-out;
 }
-
-.carta {
+.jugadorsDiv{
     border: black 1px solid;
 }
