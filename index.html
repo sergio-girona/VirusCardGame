@@ -7,19 +7,30 @@
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.13.0/Sortable.min.js"></script>
 </head>
 <body>
-        <button id="començar">Començar</button>
         <div id="partida">
-            <div id="divTornar"></div>
-            <div class="jugadorsDiv">
+            <div class="jugadorsDiv" id="divNPC">
+                <div class="cossos" id="cosNPC">
+                    <div class="cartaCos" id="carta1NPC"></div>
+                    <div class="cartaCos" id="carta2NPC"></div>
+                    <div class="cartaCos" id="carta3NPC"></div>
+                    <div class="cartaCos" id="carta4NPC"></div>
+                </div>
+                <div class="mans" id="maNPC"></div>
+            </div>
+            <div id="franjaMitja">
+                <div id="divTornar"></div>
+                <button id="començar">Començar</button>
+            </div>
+            <div class="jugadorsDiv" id="divJUGADOR">
+                <div class="mans" id="maJUGADOR"></div>
                     <div class="cossos" id="cosJUGADOR">
                         <div class="cartaCos" id="carta1JUGADOR"></div>
                         <div class="cartaCos" id="carta2JUGADOR"></div>
                         <div class="cartaCos" id="carta3JUGADOR"></div>
                         <div class="cartaCos" id="carta4JUGADOR"></div>
                     </div>
-                    <div class="mans" id="maJUGADOR"></div>
             </div>
         </div>
         <script type="module" src="Scripts/main.js"></script>
-    </body>
+</body>
 </html>

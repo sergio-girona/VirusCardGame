@@ -1,7 +1,12 @@
-import {repartirCartes} from './main.js'
-document.getElementById("començar").addEventListener("click", repartirCartes);
+import {repartirCartes, tornJoc} from './main.js'
 document.getElementById("començar").addEventListener("click", disableButton);
-//document.getElementById("començar").addEventListener("click", createUsersDivs);
+document.getElementById("començar").addEventListener("click", cartesInicials);
+document.getElementById("començar").addEventListener("click", tornJoc);
+
+function cartesInicials(){
+    repartirCartes();
+    repartirCartes();
+}
 export function crearVistaCarta(carta, nom, pos){
     const div = document.getElementById(`ma${nom}`);
     let img = document.createElement("img");
@@ -14,15 +19,22 @@ export function crearVistaCarta(carta, nom, pos){
     nouDiv.dataset.tipus=carta.tipus;
     div.appendChild(nouDiv);
 }
-
-export function createUsersDivs(){
-    let div =document.querySelector(".jugadorsDiv");
-    const nouDiv = div.cloneNode(true)
-    let parentDiv = document.getElementById("partida");
-    parentDiv.appendChild(nouDiv);
-
-}
-
 function disableButton(){
     document.getElementById("començar").disabled=true;
+}
+
+export function treureVistaNPC() {
+    let divNPC = document.getElementById("divNPC");
+    let divJUGADOR = document.getElementById("divJUGADOR");
+
+    divNPC.style.display = "none";
+    divJUGADOR.style.display = "block";
+}
+
+export function treureVistaJugador() {
+    let divNPC = document.getElementById("divNPC");
+    let divJUGADOR = document.getElementById("divJUGADOR");
+
+    divNPC.style.display = "block";
+    divJUGADOR.style.display = "none";
 }

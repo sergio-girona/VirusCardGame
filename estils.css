@@ -1,16 +1,13 @@
-body{
-    display: inline-block;
-}
 img{
     border-radius: 15px;
 }
-#partida{
-    display: flex;
-}
 #divTornar{
     background-image: url("./imatges/basura_tencada.png");
-    height: 285px;
-    width: 222px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 175px;
+    width: 150px;
+    margin-left: 200px;
 }
 #divTornar:hover{
     background-image: url("./imatges/basura_oberta.png");
@@ -19,17 +16,11 @@ img{
     display: flex;
     height: 235px;
     width: 453px;
-    margin-top: 150px;
-    margin-right: 200px;
-    margin-left: 200px;
 }
 .cossos{
     display: flex;
     height: 235px;
     width: 604px;
-    margin-top: 50px;
-    margin-right: 200px;
-    margin-left: 200px;
 }
 .cossos .cartaCos:nth-child(1),.cartaCos:nth-child(2),.cartaCos:nth-child(3),.cartaCos:nth-child(4) {
     border: black 1px solid;
@@ -42,6 +33,9 @@ img{
 }
 .cossos .cartaCos .carta:nth-child(3) {
     transform: translateY(-370px);
+}
+.jugadorsDiv{
+    display: flex;
 }
 .jugadorsDiv .mans .carta:nth-child(1) {
     rotate: -25deg;
@@ -72,4 +66,32 @@ img{
 }
 .jugadorsDiv{
     border: black 1px solid;
+}
+#divJUGADOR{
+    color: rgba(82, 206, 78, 0.38);
+}
+#cosJUGADOR{
+    margin-left: 200px;
+}
+#maJUGADOR{
+    margin-top: 25px;
+    margin-left: 10px;
+}
+#maNPC{
+    margin-top: 25px;
+    margin-left: 150px;
+}
+#divNPC{
+    margin-top: 10px;
+    color: rgba(127, 255, 212, 0.66);
+}
+#franjaMitja{
+    display: flex;
+    height: 175px;
+}
+#començar{
+    margin-top: 100px;
+    margin-left: 150px;
+    height: 30px;
+    width: 100px;
 }

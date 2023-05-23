@@ -11,8 +11,9 @@ export default class Game{
         if(this.currentPlayer.nom==="JUGADOR"){
             this.currentPlayer=this.npc;
         }
-        if(this.currentPlayer==="NPC"){
+        else if(this.currentPlayer.nom==="NPC"){
             this.currentPlayer=this.player;
         }
+        console.log(this.currentPlayer)
     }
 }

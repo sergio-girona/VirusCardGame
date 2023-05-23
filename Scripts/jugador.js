@@ -3,7 +3,6 @@ let deck = new Deck();
 deck.createDeck()
 deck.shuffleArray();
 deck.shuffleArray();
-console.log(deck)
 export default class Jugador{
     constructor(nom) {
         this.nom=nom;
@@ -12,6 +11,7 @@ export default class Jugador{
         this.arrayColors=[]
         this.barallaGeneral= deck;
     }
+
 
     afegirCartaArray(carta){
         this.baralla.push(carta);
@@ -27,24 +27,17 @@ export default class Jugador{
         const cartaNova = this.baralla.splice(pos, 1)[0];
         this.barallaGeneral.cartes.unshift(cartaNova);
     }
-    actualitzarPosicionsBaralla(){
-        const contenidor = document.getElementById("maJUGADOR");
+    actualitzarPosicionsBaralla(nom){
+        const contenidor = document.getElementById(`ma${nom}`);
         const divs = contenidor.getElementsByClassName("carta");
         Array.from(divs).forEach((div, index) => {
             div.dataset.position = index;
         });
     }
-    tornarCartaMa(carta, pos){
-        const contenidor = document.getElementById("maJUGADOR");
+    tornarCartaMa(carta, pos, nom){
+        const contenidor = document.getElementById(`ma${nom}`);
         const cartaReferencia = contenidor.children[pos];
         contenidor.insertBefore(carta,cartaReferencia);
-    }
-    tornarCartaCos(carta, pos, div){
-        const contenidor = document.getElementById(div);
-        const cartaReferencia = contenidor.children[pos];
-        contenidor.insertBefore(carta,cartaReferencia);
-        console.log(this.baralla)
-        console.log(this.cuerpo)
     }
     comprovarColors(carta,color){
         let repetida = false;
@@ -53,27 +46,21 @@ export default class Jugador{
             return repetida;
         }
         else{
-            this.tornarCartaMa(carta, carta.dataset.position);
+            this.tornarCartaMa(carta, carta.dataset.position, this.nom);
             repetida = true;
             return repetida;
         }
     }
-    actualitzarPosicionsCos(carta, div){
-        if(div==="carta1"){
-            carta.dataset.position=1;
-        }
-        if(div==="carta2"){
-            carta.dataset.position=2;
-        }
-        if(div==="carta3"){
-            carta.dataset.position=3;
-        }
-        if(div==="carta4"){
-            carta.dataset.position=4;
-        }
-    }
-    afegirEfecte(pos){
+    afegirEfecte(carta,pos){
+        const div = carta.parentNode.id;
         const cartaNova = this.baralla.splice(pos, 1)[0];
-
+        const organ = this.cuerpo.find(item => item.color === carta.dataset.color);
+        if (organ){
+            organ.efecte.push(cartaNova);
+            organ.estatOrgan(div);
+        }
+        else{
+            this.tornarCartaMa(carta, carta.dataset.position, this.nom)
+        }
     }
 }
