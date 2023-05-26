@@ -15,6 +15,14 @@ export function repartirCartes(){
     }
     partida.changeUser();
 }
+function donarCartesTorn(){
+    let pos= partida.currentPlayer.baralla.length;
+    for (let i=pos;i<3;i++){
+        donarCarta(pos);
+        pos++;
+    }
+    partida.changeUser();
+}
 const maJugador = document.getElementById("maJUGADOR");
 const  maNPC = document.getElementById("maNPC");
 const tornar = document.getElementById("divTornar");
@@ -33,27 +41,20 @@ let options = {
         const parentNodeId = element.parentNode.id;
         let parentNodeDiv=document.getElementById(parentNodeId);
         if (tipusCarta !== 'organo') {
-            if(color==="Multicolor"){
-                console.log(parentNodeDiv);
-                if(parentNodeDiv.dataset.color!==""){
-                    partida.currentPlayer.afegirEfecte(element,pos, parentNodeId);
-                    donarCarta()
-                    partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
-                    partida.changeUser();
-                    tornJoc()
-                }
-                else{
-                    partida.currentPlayer.tornarCartaMa(element, pos, partida.currentPlayer.nom);
-                }
+            if(color==="Multicolor" && parentNodeDiv.dataset.color==="null"){
+                partida.currentPlayer.tornarCartaMa(element, pos, partida.currentPlayer.nom);
             }
-            else if(parentNodeDiv.dataset.color && parentNodeDiv.dataset.color===color){
-                partida.currentPlayer.afegirEfecte(element,pos);
-                donarCarta()
+            else if(parentNodeDiv.dataset.color===color){
+                partida.afegirEfecte(element,pos);
                 partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
-                partida.changeUser();
                 tornJoc()
             }
-            else{
+            else if (color==="Multicolor" && parentNodeDiv.dataset.color!=="null"){
+                partida.afegirEfecte(element,pos);
+                partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
+                tornJoc()
+            }
+            else {
                 partida.currentPlayer.tornarCartaMa(element, pos, partida.currentPlayer.nom);
             }
         }
@@ -88,10 +89,20 @@ new Sortable(tornar,{
     onAdd : (evt) => {
         const carta = evt.item;
         const pos = carta.dataset.position;
-        donarCarta();
-        partida.currentPlayer.treureCartaBaralla(pos)
-        partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
-        carta.remove();
+        if(partida.arrayTornar.length<2){
+            partida.currentPlayer.posarCartaBaralla(pos);
+            partida.arrayTornar.push(carta);
+            carta.remove();
+            partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
+        }
+        else{
+            partida.currentPlayer.posarCartaBaralla(pos);
+            carta.remove();
+            donarCartesTorn();
+            partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
+            partida.arrayTornar=[];
+            tornJoc();
+        }
     }
 });
 let mans = {
@@ -103,7 +114,6 @@ let mans = {
 }
 const barallaNPC =  Sortable.create(maNPC, mans);
 const barallaJUGADOR = Sortable.create(maJugador, mans);
-
 export function tornJoc() {
     if (partida.currentPlayer.nom === "JUGADOR") {
         barallaNPC.option('disabled', true);
@@ -113,4 +123,9 @@ export function tornJoc() {
         barallaNPC.option('disabled', false);
         barallaJUGADOR.option('disabled', true);
     }
+}
+export function tornarCartesMa(){
+    donarCartesTorn();
+    partida.arrayTornar=[];
+    tornJoc();
 }

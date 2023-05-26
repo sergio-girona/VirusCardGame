@@ -1,7 +1,8 @@
-import {repartirCartes, tornJoc} from './main.js'
+import {repartirCartes, tornarCartesMa, tornJoc} from './main.js'
 document.getElementById("començar").addEventListener("click", disableButton);
 document.getElementById("començar").addEventListener("click", cartesInicials);
 document.getElementById("començar").addEventListener("click", tornJoc);
+document.getElementById("torn").addEventListener("click", tornarCartesMa );
 
 function cartesInicials(){
     repartirCartes();

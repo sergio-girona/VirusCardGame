@@ -67,9 +67,6 @@ img{
 .jugadorsDiv{
     border: black 1px solid;
 }
-#divJUGADOR{
-    color: rgba(82, 206, 78, 0.38);
-}
 #cosJUGADOR{
     margin-left: 200px;
 }
@@ -83,13 +80,12 @@ img{
 }
 #divNPC{
     margin-top: 10px;
-    color: rgba(127, 255, 212, 0.66);
 }
 #franjaMitja{
     display: flex;
     height: 175px;
 }
-#començar{
+#començar, #torn{
     margin-top: 100px;
     margin-left: 150px;
     height: 30px;
