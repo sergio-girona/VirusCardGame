@@ -16,6 +16,7 @@ export default class Organ extends Card{
                 this.estat = "mort";
                 const divBorrar = document.getElementById(div);
                 divBorrar.innerHTML="";
+                divBorrar.dataset.color="null";
             }
             else{
                 this.estat="neutre"

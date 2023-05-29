@@ -63,14 +63,19 @@ let options = {
             console.log("No es pot");
         }
         else {
-            let existeix = partida.currentPlayer.comprovarColors(element, color);
-            if (!existeix) {
-                partida.currentPlayer.moureCartaACos(pos);
-                donarCarta();
-                partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
-                parentNodeDiv.dataset.color = color;
-                partida.changeUser();
-                tornJoc()
+            if(!parentNodeId.includes(partida.currentPlayer.nom)){
+                partida.currentPlayer.tornarCartaMa(element,pos, partida.currentPlayer.nom)
+            }
+            else {
+                let existeix = partida.currentPlayer.comprovarColors(element, color);
+                if (!existeix) {
+                    partida.currentPlayer.moureCartaACos(pos);
+                    donarCarta();
+                    partida.currentPlayer.actualitzarPosicionsBaralla(partida.currentPlayer.nom);
+                    parentNodeDiv.dataset.color = color;
+                    partida.changeUser();
+                    tornJoc()
+                }
             }
         }
     }
@@ -79,9 +84,9 @@ for(let i = 1; i <= 4; i++){
     let carta = document.getElementById(`carta${i}JUGADOR`);
     new Sortable(carta, options);
 }
-for(let i = 1; i <= 4; i++){
-        let carta = document.getElementById(`carta${i}NPC`);
-        new Sortable(carta, options);
+for(let i = 1; i <= 4; i++) {
+    let carta = document.getElementById(`carta${i}NPC`);
+    new Sortable(carta, options);
 }
 new Sortable(tornar,{
     group: "shared",
