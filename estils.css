@@ -9,6 +9,9 @@ img{
     width: 150px;
     margin-left: 200px;
 }
+#partida{
+    z-index: 1;
+}
 #divTornar:hover{
     background-image: url("./imatges/basura_oberta.png");
 }
@@ -19,8 +22,11 @@ img{
 }
 .cossos{
     display: flex;
-    height: 235px;
+    height: 250px;
     width: 604px;
+    border: 2px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    background-color: #9c6ca4;
 }
 .cossos .cartaCos:nth-child(1),.cartaCos:nth-child(2),.cartaCos:nth-child(3),.cartaCos:nth-child(4) {
     border: black 1px solid;
@@ -36,6 +42,7 @@ img{
 }
 .jugadorsDiv{
     display: flex;
+    background-color: #b4cc07;
 }
 .jugadorsDiv .mans .carta:nth-child(1) {
     rotate: -25deg;
@@ -65,7 +72,7 @@ img{
     transition: transform 0.4s ease-in-out;
 }
 .jugadorsDiv{
-    border: black 1px solid;
+    border: black 2px solid;
 }
 #cosJUGADOR{
     margin-left: 200px;
@@ -84,10 +91,34 @@ img{
 #franjaMitja{
     display: flex;
     height: 175px;
+    background-color: #c1bc89;
 }
 #començar, #torn{
     margin-top: 100px;
     margin-left: 150px;
     height: 30px;
     width: 100px;
+}
+#tornName{
+    margin-top: 100px;
+    margin-left: 150px;
+    height: 30px;
+    width: 100px;
+}
+#final {
+    border: 3px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    height: 250px;
+    width: 500px;
+    z-index: 9999;
+    margin-left: 30%;
+    margin-top: 15%;
+    display: none;
+    position: absolute;
+    background-color: #c1bc89;
+}
+#finalText{
+    margin-top: 70px;
+    margin-left: 140px;
+    font-size: xx-large;
 }
